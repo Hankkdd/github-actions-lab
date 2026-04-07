@@ -36,8 +36,6 @@ jobs:
 
       - name: show git info
         run: |
-          echo "author: ${{ github.actor }}"
-          echo "branch: ${{ github.ref_name }}"
-          echo "commit: ${{ github.sha }}"
-          git log -1 --pretty=format:"%H - %an, %ar : %s"
+          echo "branch: $(git branch --show-current)"
+          git log -1 --pretty=format:"Author - %an, Message : %s"
       
