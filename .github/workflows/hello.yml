@@ -34,8 +34,10 @@ jobs:
       - name: list files
         run: ls -la
 
-      - name: show git branch and log
-        run: git log -1
-      
       - name: show git info
-        run: git log -1 --pretty=format:"%H - %an, %ar"
+        run: |
+          echo "author: ${{ github.actor }}"
+          echo "branch: ${{ github.ref_name }}"
+          echo "commit: ${{ github.sha }}"
+          git log -1 --pretty=format:"%H - %an, %ar : %s"
+      
