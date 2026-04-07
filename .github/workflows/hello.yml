@@ -36,3 +36,6 @@ jobs:
 
       - name: show git branch and log
         run: git log -1
+      
+      - name: show git info
+        run: git log -1 --pretty=format:"%H - %an, %ar"
